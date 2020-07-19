@@ -29,10 +29,7 @@ const navList = document.getElementById("navbar__list");
 */
 
 // scroll spy
-const makeActive = (link) => {
-    sections[link].classList.add("your-active-class")
-    menu_links[link].classList.add("your-active-class");
-}
+
 const removeActive = (link) => {
     sections[link].classList.remove("your-active-class")
     menu_links[link].classList.remove("your-active-class");
@@ -73,23 +70,22 @@ window.addEventListener("scroll", () => {
     }
 });
 
-// Scroll to anchor ID using scrollTO event
-navList.addEventListener("click", e =>{
-    e.preventDefault();
-    const sectionToScrollInto = document.getElementById(e.target.dataset.link);
-    sectionToScrollInto.scrollIntoView({block: 'end', behavior: 'smooth'})
-
-})
-
 /**
  * End Main Functions
  * Begin Events
  *
 */
 
-// Build menu 
-
 // Scroll to section on link click
+navList.addEventListener("click", e =>{
+    e.preventDefault();
+    e.target.scrollTo();
+    //const sectionToScrollInto = document.getElementById(e.target.dataset.link);
+    //sectionToScrollInto.scrollIntoView({block: 'end', behavior: 'smooth'})
 
+})
 // Set sections as active
-
+const makeActive = (link) => {
+    sections[link].classList.add("your-active-class")
+    menu_links[link].classList.add("your-active-class");
+}
